@@ -6,12 +6,12 @@ require ${@'tegra-kernel.inc' if 'tegra' in d.getVar('MACHINEOVERRIDES').split('
 
 # Shared tegra-kernel-cache kmeta (all tegra machines): vendor patch queues plus
 # a per-machine BSP (selected by KMACHINE) that inherits genericarm64.
-TEGRA_KERNEL_CACHE_URI ?= "git://github.com/OE4T/tegra-kernel-cache.git;protocol=https;branch=yocto-6.18"
+TEGRA_KERNEL_CACHE_URI ?= "git://github.com/krant/tegra-kernel-cache.git;protocol=https;branch=yocto-6.18"
 SRC_URI:append:tegra = " \
     ${TEGRA_KERNEL_CACHE_URI};name=tegrameta;type=kmeta;destsuffix=tegra-meta \
 "
 SRCREV_FORMAT:tegra = "meta_machine_tegrameta"
-SRCREV_tegrameta ?= "a78c980f4c0f9aec1ccc9a176fcdd5516be2faa5"
+SRCREV_tegrameta ?= "178a6c8080863015b3058850ca2e4c62a4664f0a"
 
 COMPATIBLE_MACHINE:tegra = "(tegra234|tegra264)"
 KMACHINE:tegra = "${SOC_FAMILY}"
